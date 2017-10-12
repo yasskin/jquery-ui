@@ -9,9 +9,11 @@
     <script src="jquery-ui.js"></script>
     <script>
       $(document).ready(function(){
-        $("#sub1").draggable({revert:function(){$("#sub1").css("background", "purple");return true;}});
-        $("#sub2").draggable({revert:true, revertDuration:100});
-        $("#sub3").draggable();
+        $("#sub1").draggable({helper:"clone", opacity: .5});
+        $("#sub2").draggable();
+        $("#sub3").draggable({helper:function(){
+          return $("<div style='border:5px solid purple; background: black; color: white'>Custom Helper</div>");
+        }});
       });
     </script>
   </head>
@@ -33,6 +35,12 @@ $(".sub, p").draggable({cancel:"#sub1, #sub2"});
 $("#sub1").draggable({grid:[50,100]});
 $("#sub2").draggable({grid:[0,100]});
 $("#sub1").draggable({revert:true});
-
+$("#sub1").draggable({revert:function(){$("#sub1").css("background", "purple");return true;}});
+$("#sub1").draggable({helper:"clone", opacity: .5});
+$("#sub2").draggable();
+$("#sub3").draggable({helper:function(){
+  return $("<div style='border: 5px solid purple; background: black; color: white'>Custom Helper</div>");
+}});
+});
 
 -->
