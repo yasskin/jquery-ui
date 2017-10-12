@@ -36,13 +36,11 @@
 </html>
 
 <!--
-
 jQuery UI Methods
 1. disable
 2. enable
 3. destroy
 4. option
-
 $("#sub1").draggable({axis:"x"});
 $("#sub2").draggable({axis:"y"});
 $("#sub3").draggable({containment:"#main"});
@@ -62,9 +60,7 @@ $("#btnGet").click(function(){
   alert($("#sub3").draggable("option", "revert"));
   alert($("#sub3").draggable("option", "revertDuration"));
   alert($("#sub3").draggable("option", "helper"));
-
 });
-
 $("#btnOptions").click(function(){
   var obj = $("#sub3").draggable("option");
   alert(obj.revert);
@@ -73,9 +69,7 @@ $("#btnOptions").click(function(){
     alert(key + " = " + value);
   });
 });
-
 $("#btnSet").click(function(){
   $("#sub1").draggable("option", {"cursor":"grab", "revert": true });
 });
-
 -->

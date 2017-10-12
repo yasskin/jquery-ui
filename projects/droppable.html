@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interaction: Draggable</title>
+    <link rel="stylesheet" href="droppable.css">
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#item").draggable();
+        $("#parent, #child").droppable({greedy:true, drop:function(){
+          console.log("The item is dropped in " + $(this).attr("id"));
+        }});
+      });
+    </script>
+  </head>
+  <body>
+    <div id="item" class="pink"></div>
+    <div id="parent">
+      <div id="child"></div>
+    </div>
+  </body>
+</html>
+
+
+<!--
+
+tolerance:
+1. intersect
+2. touch
+3. fit
+4 pointer
+
+$(".item").draggable();
+$("#area").droppable({accept:"#item2", drop:function(){
+  console.log("The item is dropped");
+}});
+
+$("#item1, #item3").draggable({scope:"pink"});
+$("#item2, #item4").draggable({scope:"purple"});
+$("#area1").droppable({scope:"purple", drop:function(){
+  console.log("A purple item is dropped.");
+}});
+$("#area2").droppable({scope:"pink", drop:function(){
+  console.log("A pink item is dropped.");
+}});
+
+$("#item").draggable();
+$("#area").droppable({tolerance:"pointer", drop:function(){
+  console.log("The item is dropped");
+}});
+
+
+-->
