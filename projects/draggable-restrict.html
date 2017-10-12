@@ -9,10 +9,28 @@
     <script src="jquery-ui.js"></script>
     <script>
       $(document).ready(function(){
-        $("#sub1").draggable({snap:"#main1", snapTolerance: 20});
-        $("#sub2").draggable({snap:true, snapMode: "inner"});
-        $("#sub3").draggable({snap:true, snapMode: "outer"});
-        $("#main2").draggable();
+        $("#sub1, #sub2").draggable();
+        $("#sub3").draggable({revert:true, revertDuration:1000});
+        $("#btnDisable").click(function(){
+          $("#sub1").draggable("disable");
+        });
+        $("#btnEnable").click(function(){
+          $("#sub1").draggable("enable");
+        });
+        $("#btnDestroy").click(function(){
+          $("#sub2").draggable("destroy");
+        });
+        $("#btnGet").click(function(){
+          alert($("#sub3").draggable("option", "helper"));
+        });
+        $("#btnSet").click(function(){
+          $("#sub1").draggable("option", {"cursor":"grab", "revert": true });
+        });
+        $("#btnOptions").click(function(){
+          var obj = $("#sub3").draggable("option");
+          alert(obj.revert);
+          alert(obj.revertDuration);
+        });
       });
     </script>
   </head>
@@ -21,13 +39,24 @@
       <div id="sub1" class="sub red"></div>
       <div id="sub2" class="sub green"></div>
       <div id="sub3" class="sub blue"></div>
-    </div>
-    <div id="main2" class="">
-    </div>
+    </div><br>
+    <button id="btnDisable">Disable</button>
+    <button id="btnEnable">Enable</button>
+    <button id="btnDestroy">Destroy</button>
+    <button id="btnGet">Get Option</button>
+    <button id="btnSet">Set Option</button>
+    <button id="btnOptions">Get All Options</button>
+
   </body>
 </html>
 
 <!--
+
+jQuery UI Methods
+1. disable
+2. enable
+3. destroy
+4. option
 
 $("#sub1").draggable({axis:"x"});
 $("#sub2").draggable({axis:"y"});
@@ -44,6 +73,24 @@ $("#sub3").draggable({helper:function(){
 }});
 });
 $("#sub1").draggable({snap:true, snapTolerance:20});
+$("#btnGet").click(function(){
+  alert($("#sub3").draggable("option", "revert"));
+  alert($("#sub3").draggable("option", "revertDuration"));
+  alert($("#sub3").draggable("option", "helper"));
 
+});
+
+$("#btnOptions").click(function(){
+  var obj = $("#sub3").draggable("option");
+  alert(obj.revert);
+  alert(obj.revertDuration);
+  $.each(obj, function(key, value) {
+    alert(key + " = " + value);
+  });
+});
+
+$("#btnSet").click(function(){
+  $("#sub1").draggable("option", {"cursor":"grab", "revert": true });
+});
 
 -->

@@ -1,11 +1,11 @@
 #main1,
 #main2
 {
-  width: 500px;
+  width: 800px;
   height: 500px;
   margin: 0px auto;
   border: 2px solid black;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .sub {
