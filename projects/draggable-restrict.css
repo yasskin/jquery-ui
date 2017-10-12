@@ -27,3 +27,7 @@
 .blue {
   background: blue;
 }
+
+p {
+  border: 5px solid black;
+}
