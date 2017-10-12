@@ -9,44 +9,29 @@
     <script src="jquery-ui.js"></script>
     <script>
       $(document).ready(function(){
-        $("#sub1, #sub2").draggable();
-        $("#sub3").draggable({revert:true, revertDuration:1000});
-        $("#btnDisable").click(function(){
-          $("#sub1").draggable("disable");
-        });
-        $("#btnEnable").click(function(){
-          $("#sub1").draggable("enable");
-        });
-        $("#btnDestroy").click(function(){
-          $("#sub2").draggable("destroy");
-        });
-        $("#btnGet").click(function(){
-          alert($("#sub3").draggable("option", "helper"));
-        });
-        $("#btnSet").click(function(){
-          $("#sub1").draggable("option", {"cursor":"grab", "revert": true });
-        });
-        $("#btnOptions").click(function(){
-          var obj = $("#sub3").draggable("option");
-          alert(obj.revert);
-          alert(obj.revertDuration);
+        $("#btnCreate").click(function(){
+          $("#item").draggable({
+            create:function(){
+              console.log("A draggable element is created!");
+            },
+            start:function(){
+              $("#item").css("background","pink");
+              console.log("The item starts moving");
+            },
+            drag:function(){
+              $("#status").html("The element is moving");
+            },
+            stop:function(){
+              $("#status").html("The element stopped!");
+            }});
         });
       });
     </script>
   </head>
   <body>
-    <div id="main1" class="">
-      <div id="sub1" class="sub red"></div>
-      <div id="sub2" class="sub green"></div>
-      <div id="sub3" class="sub blue"></div>
-    </div><br>
-    <button id="btnDisable">Disable</button>
-    <button id="btnEnable">Enable</button>
-    <button id="btnDestroy">Destroy</button>
-    <button id="btnGet">Get Option</button>
-    <button id="btnSet">Set Option</button>
-    <button id="btnOptions">Get All Options</button>
-
+    <div id="item"></div>
+    <button id="btnCreate">Create</button>
+    <div id="status"></div>
   </body>
 </html>
 

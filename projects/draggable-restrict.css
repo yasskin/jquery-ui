@@ -5,16 +5,22 @@
   height: 500px;
   margin: 0px auto;
   border: 2px solid black;
-  display: inline-flex;
+  display: flex;
 }
 
-.sub {
+#item {
   width: 100px;
   height: 100px;
   border: 1px solid black;
   padding: 5px;
   margin: 5px;
   float: left;
+  background: purple;
+  display: flex;
+}
+
+#btnCreate {
+  display: flex;
 }
 
 .red {
