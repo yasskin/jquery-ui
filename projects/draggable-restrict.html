@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Interaction: Draggable</title>
+    <link rel="stylesheet" href="draggable-restrict.css">
+    <link rel="stylesheet" href="jquery-ui.css">
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(".sub, p").draggable({cancel:"#sub1"});
+        $("p:first").draggable({disabled:true});
+      });
+    </script>
+  </head>
+  <body>
+    <div id="main" class="">
+      <div id="sub1" class="sub red"></div>
+      <div id="sub2" class="sub green"></div>
+      <div id="sub3" class="sub blue"></div>
+      <p>A Paragraph!</p>
+      <p>Another paragraph!</p>
+    </div>
+  </body>
+</html>
+
+<!--
+
+$("#sub1").draggable({axis:"x"});
+$("#sub2").draggable({axis:"y"});
+$("#sub3").draggable({containment:"#main"});
+$(".sub, p").draggable({cancel:"#sub1, #sub2"});
+
+-->
