@@ -9,19 +9,20 @@
     <script src="jquery-ui.js"></script>
     <script>
       $(document).ready(function(){
-        $("#sub1").draggable({helper:"clone", opacity: .5});
-        $("#sub2").draggable();
-        $("#sub3").draggable({helper:function(){
-          return $("<div style='border:5px solid purple; background: black; color: white'>Custom Helper</div>");
-        }});
+        $("#sub1").draggable({snap:"#main1", snapTolerance: 20});
+        $("#sub2").draggable({snap:true, snapMode: "inner"});
+        $("#sub3").draggable({snap:true, snapMode: "outer"});
+        $("#main2").draggable();
       });
     </script>
   </head>
   <body>
-    <div id="main" class="">
+    <div id="main1" class="">
       <div id="sub1" class="sub red"></div>
       <div id="sub2" class="sub green"></div>
       <div id="sub3" class="sub blue"></div>
+    </div>
+    <div id="main2" class="">
     </div>
   </body>
 </html>
@@ -42,5 +43,7 @@ $("#sub3").draggable({helper:function(){
   return $("<div style='border: 5px solid purple; background: black; color: white'>Custom Helper</div>");
 }});
 });
+$("#sub1").draggable({snap:true, snapTolerance:20});
+
 
 -->
